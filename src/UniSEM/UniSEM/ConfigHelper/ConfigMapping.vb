@@ -69,4 +69,18 @@ Module ConfigMapping
         Return True
     End Function
 
+    Public Function SaveConfig() As Boolean
+        'create temp dict
+        Dim dictTemp As Dictionary(Of String, ConfigLine) = New Dictionary(Of String, ConfigLine)
+        'write SYS_ENV_LIST
+        'write another value
+
+        UniSEMConfHelper.dictConfigKeyWordAsKeyDetailAsValue = dictTemp
+
+        UniSEMConfHelper.SaveConfigFromDictToFile()
+
+        'refresh
+        ReadConfig()
+    End Function
+
 End Module

@@ -32,4 +32,20 @@
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ReadConfig()
     End Sub
+
+    Private Sub MetroButton1_Click_1(sender As Object, e As EventArgs) Handles btnReload.Click
+        Dim sPath As String = Environment.GetEnvironmentVariable("BOOST_ROOT")
+        MsgBox(sPath)
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+
+
+        Try
+            System.Environment.SetEnvironmentVariable(txtEnvName.Text, txtEnvValue.Text, EnvironmentVariableTarget.Machine)
+            form_alert.Show("设置成功/Success", form_alert.AlertType.success)
+        Catch ex As Exception
+            form_alert.Show("设置失败/Fail " & ex.Message, form_alert.AlertType.[error])
+        End Try
+    End Sub
 End Class
