@@ -23,13 +23,29 @@ Partial Class MainForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
+        Me.MetroPanel1 = New MetroFramework.Controls.MetroPanel()
         Me.SuspendLayout()
+        '
+        'MetroPanel1
+        '
+        Me.MetroPanel1.AutoScroll = True
+        Me.MetroPanel1.HorizontalScrollbarBarColor = True
+        Me.MetroPanel1.HorizontalScrollbarHighlightOnWheel = False
+        Me.MetroPanel1.HorizontalScrollbarSize = 10
+        Me.MetroPanel1.Location = New System.Drawing.Point(23, 63)
+        Me.MetroPanel1.Name = "MetroPanel1"
+        Me.MetroPanel1.Size = New System.Drawing.Size(754, 335)
+        Me.MetroPanel1.TabIndex = 0
+        Me.MetroPanel1.VerticalScrollbar = True
+        Me.MetroPanel1.VerticalScrollbarBarColor = True
+        Me.MetroPanel1.VerticalScrollbarHighlightOnWheel = False
+        Me.MetroPanel1.VerticalScrollbarSize = 10
         '
         'MainForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.MetroPanel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainForm"
         Me.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow
@@ -38,4 +54,5 @@ Partial Class MainForm
 
     End Sub
 
+    Friend WithEvents MetroPanel1 As MetroFramework.Controls.MetroPanel
 End Class

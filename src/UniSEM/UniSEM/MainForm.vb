@@ -1,4 +1,5 @@
 ﻿Public Class MainForm
+
     'STEP
     'load conf
     'parse SYS_ENV_LIST == ACE_ROOT|1,BOOST_ROOT|2,TBB_ROOT|1    #NAME|CURRENTSETTING
@@ -23,5 +24,13 @@
             System.Environment.SetEnvironmentVariable("SAP_CODEPAGE", "8400", EnvironmentVariableTarget.Machine)
             MessageBox.Show("env add success")
         End If
+    End Sub
+
+    Private Sub MetroButton1_Click(sender As Object, e As EventArgs)
+        ENVTEST()
+    End Sub
+
+    Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ReadConfig()
     End Sub
 End Class

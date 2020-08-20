@@ -122,6 +122,12 @@
     <Compile Include="ConfigHelper\Form_Alert.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Control\SettingItem.Designer.vb">
+      <DependentUpon>SettingItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\SettingItem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     <EmbeddedResource Include="ConfigHelper\Form_Alert.resx">
       <DependentUpon>Form_Alert.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Control\SettingItem.resx">
+      <DependentUpon>SettingItem.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -179,7 +188,9 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="UniSEM.conf" />
+    <None Include="UniSEM.conf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\add_new_200px.png" />
