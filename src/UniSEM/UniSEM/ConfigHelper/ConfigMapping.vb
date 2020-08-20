@@ -50,7 +50,7 @@ Module ConfigMapping
 
         Next
 
-        MainForm.MetroPanel1.Controls.Clear()
+        MainForm.FlowLayoutPanel1.Controls.Clear()
         If DICT_ENV.Count > 0 Then
             For Each subKeyPair In DICT_ENV
                 Dim cItem As New SettingItem
@@ -62,7 +62,7 @@ Module ConfigMapping
                         cItem.MetroComboBox1.Items.Add(subOptions.Value)
                     Next
                 End If
-                MainForm.MetroPanel1.Controls.Add(cItem)
+                MainForm.FlowLayoutPanel1.Controls.Add(cItem)
             Next
         End If
 
