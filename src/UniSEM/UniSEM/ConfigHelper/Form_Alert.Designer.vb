@@ -66,6 +66,9 @@ Partial Class form_alert
         '
         Me.timershow.Interval = 1
         '
+        'closealert
+        '
+        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.Transparent
@@ -101,6 +104,7 @@ Partial Class form_alert
         Me.Controls.Add(Me.Label_message)
         Me.Controls.Add(Me.img_icon)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Name = "form_alert"
         Me.Opacity = 0.95R
