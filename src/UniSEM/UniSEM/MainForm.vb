@@ -17,7 +17,7 @@
     '[ENV NAME TEXT BOX] [ CURRENT SETTINGS LABEL ] [AVAILABLE SETTINGS COMBO BOX] [+ BUTTON FOR ADD MORE SETTINGS]
 
     Private Sub ENVTEST()
-        Dim sPath As String = Environment.GetEnvironmentVariable("SAP_CODEPAGE")
+        Dim sPath As String = Environment.GetEnvironmentVariable("SAP_CODEPAGE", EnvironmentVariableTarget.Machine)
 
         If sPath <> "8400" Then
             System.Environment.SetEnvironmentVariable("SAP_CODEPAGE", "8400", EnvironmentVariableTarget.Machine)
@@ -34,7 +34,7 @@
     End Sub
 
     Private Sub MetroButton1_Click_1(sender As Object, e As EventArgs) Handles btnReload.Click
-        Dim sPath As String = Environment.GetEnvironmentVariable("BOOST_ROOT")
+        Dim sPath As String = Environment.GetEnvironmentVariable("BOOST_ROOT", EnvironmentVariableTarget.Machine)
         MsgBox(sPath)
     End Sub
 

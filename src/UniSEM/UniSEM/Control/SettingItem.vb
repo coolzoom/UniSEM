@@ -2,14 +2,14 @@
     Public ENV_NAME As String
 
     Private Sub SettingItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblCurrent.Text = Environment.GetEnvironmentVariable(ENV_NAME)
+        lblCurrent.Text = Environment.GetEnvironmentVariable(ENV_NAME, EnvironmentVariableTarget.Machine)
     End Sub
 
     Private Sub MetroComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles MetroComboBox1.SelectedIndexChanged
         txtEnvName.Text = ENV_NAME
         Try
             System.Environment.SetEnvironmentVariable(ENV_NAME, MetroComboBox1.Text, EnvironmentVariableTarget.Machine)
-            lblCurrent.Text = Environment.GetEnvironmentVariable(ENV_NAME)
+            lblCurrent.Text = Environment.GetEnvironmentVariable(ENV_NAME, EnvironmentVariableTarget.Machine)
             form_alert.Show("设置成功/Success", form_alert.AlertType.success)
         Catch ex As Exception
             form_alert.Show("设置失败/Fail " & ex.Message, form_alert.AlertType.[error])
