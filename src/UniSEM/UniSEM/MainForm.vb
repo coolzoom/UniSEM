@@ -39,8 +39,29 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        '
+        Dim strEnv As String = ""
+        If Not txtEnvName.Text.Contains("|") Then
+            form_alert.Show("请按照 变量名|别称设置/Format Env|Alias " & txtEnvName.Text, form_alert.AlertType.[error])
+            Exit Sub
+        Else
+            strEnv = txtEnvName.Text.Split("|")(0)
+        End If
 
+        'if already exists
+        If ConfigDictionary.ContainsKey(txtEnvName.Text) Then
+            form_alert.Show("该设置项目已经存在/Item already exists " & txtEnvName.Text, form_alert.AlertType.[error])
+            Exit Sub
+        End If
 
+        'if not 
+        ConfigDictionary("SYS_ENV_LIST").ConfigVALUE = ConfigDictionary("SYS_ENV_LIST").ConfigVALUE & "," & strEnv
+        Dim configLineTemp As ConfigLine = New ConfigLine With {
+            .ConfigKeyWord = txtEnvName.Text,
+            .ConfigVALUE = txtEnvValue.Text
+        }
+        ConfigDictionary.Add(txtEnvName.Text, configLineTemp)
+        SaveConfig()
         Try
             System.Environment.SetEnvironmentVariable(txtEnvName.Text, txtEnvValue.Text, EnvironmentVariableTarget.Machine)
             form_alert.Show("设置成功/Success", form_alert.AlertType.success)

@@ -7,11 +7,15 @@ Module ConfigMapping
     Public THIS_CONFIG_LANG As CONST_LANG_ENUM = CONST_LANG_ENUM.LANG_ENUS
 
     ''' <summary>
-    ''' private ConfigDictionary read from config file
+    ''' ConfigDictionary read from config file
     ''' </summary>
-    Private ConfigDictionary As Dictionary(Of String, ConfigLine)
+    Public ConfigDictionary As Dictionary(Of String, ConfigLine)
 
     Public UniSEMConfHelper As ConfigHelper
+
+    ''' <summary>
+    ''' Used to build the user control list
+    ''' </summary>
     Public DICT_ENV As Dictionary(Of String, Dictionary(Of String, String))
 
     ''' <summary>
@@ -28,6 +32,13 @@ Module ConfigMapping
 
         ConfigDictionary = UniSEMConfHelper.dictConfigKeyWordAsKeyDetailAsValue
 
+        BuildControlList()
+        Return True
+    End Function
+    ''' <summary>
+    ''' Used to build the user control list
+    ''' </summary>
+    Public Sub BuildControlList()
         DICT_ENV = New Dictionary(Of String, Dictionary(Of String, String))
 
         For Each subKeyPair In ConfigDictionary
@@ -65,17 +76,10 @@ Module ConfigMapping
                 MainForm.FlowLayoutPanel1.Controls.Add(cItem)
             Next
         End If
-
-        Return True
-    End Function
-
+    End Sub
     Public Function SaveConfig() As Boolean
-        'create temp dict
-        Dim dictTemp As Dictionary(Of String, ConfigLine) = New Dictionary(Of String, ConfigLine)
-        'write SYS_ENV_LIST
-        'write another value
 
-        UniSEMConfHelper.dictConfigKeyWordAsKeyDetailAsValue = dictTemp
+        UniSEMConfHelper.dictConfigKeyWordAsKeyDetailAsValue = ConfigDictionary
 
         UniSEMConfHelper.SaveConfigFromDictToFile()
 
