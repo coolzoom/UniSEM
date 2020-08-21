@@ -26,11 +26,11 @@ Partial Class MainForm
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnReload = New MetroFramework.Controls.MetroButton()
         Me.MetroPanel1 = New MetroFramework.Controls.MetroPanel()
-        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
-        Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
+        Me.btnAdd = New MetroFramework.Controls.MetroButton()
         Me.txtEnvName = New MetroFramework.Controls.MetroTextBox()
         Me.txtEnvValue = New MetroFramework.Controls.MetroTextBox()
-        Me.btnAdd = New MetroFramework.Controls.MetroButton()
+        Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
+        Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,11 +43,11 @@ Partial Class MainForm
         '
         'btnReload
         '
-        Me.btnReload.Location = New System.Drawing.Point(651, 502)
+        Me.btnReload.Location = New System.Drawing.Point(582, 502)
         Me.btnReload.Name = "btnReload"
-        Me.btnReload.Size = New System.Drawing.Size(126, 41)
+        Me.btnReload.Size = New System.Drawing.Size(195, 41)
         Me.btnReload.TabIndex = 1
-        Me.btnReload.Text = "Reload CMAKE"
+        Me.btnReload.Text = "重启CMAKE / Reload CMAKE"
         Me.btnReload.UseSelectable = True
         '
         'MetroPanel1
@@ -69,23 +69,16 @@ Partial Class MainForm
         Me.MetroPanel1.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel1.VerticalScrollbarSize = 10
         '
-        'MetroLabel1
+        'btnAdd
         '
-        Me.MetroLabel1.AutoSize = True
-        Me.MetroLabel1.Location = New System.Drawing.Point(23, 64)
-        Me.MetroLabel1.Name = "MetroLabel1"
-        Me.MetroLabel1.Size = New System.Drawing.Size(80, 20)
-        Me.MetroLabel1.TabIndex = 3
-        Me.MetroLabel1.Text = "Current List"
-        '
-        'MetroLabel2
-        '
-        Me.MetroLabel2.AutoSize = True
-        Me.MetroLabel2.Location = New System.Drawing.Point(13, 12)
-        Me.MetroLabel2.Name = "MetroLabel2"
-        Me.MetroLabel2.Size = New System.Drawing.Size(65, 20)
-        Me.MetroLabel2.TabIndex = 4
-        Me.MetroLabel2.Text = "Add Item"
+        Me.btnAdd.BackColor = System.Drawing.Color.Transparent
+        Me.btnAdd.BackgroundImage = Global.UniSEM.My.Resources.Resources.add_new_200px
+        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnAdd.Location = New System.Drawing.Point(691, 26)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(58, 57)
+        Me.btnAdd.TabIndex = 7
+        Me.btnAdd.UseSelectable = True
         '
         'txtEnvName
         '
@@ -155,16 +148,23 @@ Partial Class MainForm
         Me.txtEnvValue.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
         Me.txtEnvValue.WaterMarkFont = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel)
         '
-        'btnAdd
+        'MetroLabel2
         '
-        Me.btnAdd.BackColor = System.Drawing.Color.Transparent
-        Me.btnAdd.BackgroundImage = Global.UniSEM.My.Resources.Resources.add_new_200px
-        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.btnAdd.Location = New System.Drawing.Point(691, 26)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(58, 57)
-        Me.btnAdd.TabIndex = 7
-        Me.btnAdd.UseSelectable = True
+        Me.MetroLabel2.AutoSize = True
+        Me.MetroLabel2.Location = New System.Drawing.Point(13, 12)
+        Me.MetroLabel2.Name = "MetroLabel2"
+        Me.MetroLabel2.Size = New System.Drawing.Size(130, 20)
+        Me.MetroLabel2.TabIndex = 4
+        Me.MetroLabel2.Text = "添加设置/Add Item"
+        '
+        'MetroLabel1
+        '
+        Me.MetroLabel1.AutoSize = True
+        Me.MetroLabel1.Location = New System.Drawing.Point(23, 64)
+        Me.MetroLabel1.Name = "MetroLabel1"
+        Me.MetroLabel1.Size = New System.Drawing.Size(145, 20)
+        Me.MetroLabel1.TabIndex = 3
+        Me.MetroLabel1.Text = "当前设置/Current List"
         '
         'MainForm
         '
@@ -177,7 +177,7 @@ Partial Class MainForm
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainForm"
         Me.ShadowType = MetroFramework.Forms.MetroFormShadowType.AeroShadow
-        Me.Text = "UniSEM"
+        Me.Text = "优设UniSEM - Universal Windows System Enviroment Manager"
         Me.MetroPanel1.ResumeLayout(False)
         Me.MetroPanel1.PerformLayout()
         Me.ResumeLayout(False)

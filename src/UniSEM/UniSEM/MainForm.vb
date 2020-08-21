@@ -34,8 +34,18 @@
     End Sub
 
     Private Sub MetroButton1_Click_1(sender As Object, e As EventArgs) Handles btnReload.Click
-        Dim sPath As String = Environment.GetEnvironmentVariable("BOOST_ROOT", EnvironmentVariableTarget.Machine)
-        MsgBox(sPath)
+        'Dim sPath As String = Environment.GetEnvironmentVariable("BOOST_ROOT", EnvironmentVariableTarget.Machine)
+        'MsgBox(sPath)
+
+        Dim localCmake As Process() = Process.GetProcessesByName("cmake-gui")
+
+        For Each subCmake In localCmake
+            Dim strFullpath As String = subCmake.MainModule.FileName
+            subCmake.CloseMainWindow()
+
+            Process.Start(strFullpath)
+        Next
+
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
