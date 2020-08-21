@@ -21,6 +21,7 @@
 
         If sPath <> "8400" Then
             System.Environment.SetEnvironmentVariable("SAP_CODEPAGE", "8400", EnvironmentVariableTarget.Machine)
+            System.Environment.SetEnvironmentVariable("SAP_CODEPAGE", "8400", EnvironmentVariableTarget.User)
             MessageBox.Show("env add success")
         End If
     End Sub
@@ -74,6 +75,7 @@
         SaveConfig()
         Try
             System.Environment.SetEnvironmentVariable(txtEnvName.Text, txtEnvValue.Text, EnvironmentVariableTarget.Machine)
+            System.Environment.SetEnvironmentVariable(txtEnvName.Text, txtEnvValue.Text, EnvironmentVariableTarget.User)
             form_alert.Show("设置成功/Success", form_alert.AlertType.success)
         Catch ex As Exception
             form_alert.Show("设置失败/Fail " & ex.Message, form_alert.AlertType.[error])

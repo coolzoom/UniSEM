@@ -31,6 +31,7 @@ Partial Class MainForm
         Me.txtEnvValue = New MetroFramework.Controls.MetroTextBox()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
+        Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
         Me.MetroPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -166,10 +167,20 @@ Partial Class MainForm
         Me.MetroLabel1.TabIndex = 3
         Me.MetroLabel1.Text = "当前设置/Current List"
         '
+        'MetroLabel3
+        '
+        Me.MetroLabel3.AutoSize = True
+        Me.MetroLabel3.Location = New System.Drawing.Point(23, 523)
+        Me.MetroLabel3.Name = "MetroLabel3"
+        Me.MetroLabel3.Size = New System.Drawing.Size(109, 20)
+        Me.MetroLabel3.TabIndex = 4
+        Me.MetroLabel3.Text = "v1.0 by ylg 2020"
+        '
         'MainForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(800, 552)
+        Me.Controls.Add(Me.MetroLabel3)
         Me.Controls.Add(Me.MetroLabel1)
         Me.Controls.Add(Me.MetroPanel1)
         Me.Controls.Add(Me.btnReload)
@@ -193,4 +204,5 @@ Partial Class MainForm
     Friend WithEvents txtEnvName As MetroFramework.Controls.MetroTextBox
     Friend WithEvents txtEnvValue As MetroFramework.Controls.MetroTextBox
     Friend WithEvents btnAdd As MetroFramework.Controls.MetroButton
+    Friend WithEvents MetroLabel3 As MetroFramework.Controls.MetroLabel
 End Class

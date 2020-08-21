@@ -9,6 +9,7 @@
         txtEnvName.Text = ENV_NAME
         Try
             System.Environment.SetEnvironmentVariable(ENV_NAME, MetroComboBox1.Text, EnvironmentVariableTarget.Machine)
+            System.Environment.SetEnvironmentVariable(ENV_NAME, MetroComboBox1.Text, EnvironmentVariableTarget.User)
             lblCurrent.Text = Environment.GetEnvironmentVariable(ENV_NAME, EnvironmentVariableTarget.Machine)
             form_alert.Show("设置成功/Success", form_alert.AlertType.success)
         Catch ex As Exception
